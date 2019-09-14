@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILMergeWin", "ILMergeWin\ILMergeWin.csproj", "{BAFA3943-5168-4317-8C2D-EEDC079ABB66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6D6C4057-F0E8-4972-8B60-0AD1C9DA94D0}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+		Task.txt = Task.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAFA3943-5168-4317-8C2D-EEDC079ABB66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAFA3943-5168-4317-8C2D-EEDC079ABB66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAFA3943-5168-4317-8C2D-EEDC079ABB66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAFA3943-5168-4317-8C2D-EEDC079ABB66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4FCE70E-1DCC-4296-950D-DF971F03B1AE}
+	EndGlobalSection
+EndGlobal

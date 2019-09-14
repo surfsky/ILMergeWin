@@ -1,0 +1,68 @@
+
+            try
+            {
+                // 运行该命令，并重定向输出
+                var p = new Process();
+                p.StartInfo = new ProcessStartInfo(cmdFile);
+                // 若直接用这种方式调用，老是报异常：路径不正确。找不到解决方法。
+                // 故先写到bat文件中去，再执行，运行良好
+                //p.StartInfo.FileName = file;
+                //p.StartInfo.Arguments = arg;
+                p.StartInfo.RedirectStandardInput = true;
+                p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.CreateNoWindow = true;
+                p.EnableRaisingEvents = true;
+                p.OutputDataReceived += process_OutputDataReceived;
+                p.Exited += process_Exited;
+                p.Start();
+                p.BeginOutputReadLine();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+                Log(ex.StackTrace);
+            }
+
+            
+        /// <summary>输出重定向</summary>
+        private void process_OutputDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            Action<string> action = (t) => Log(t.ToText());
+            this.Invoke(action, e?.Data);
+        }
+
+        /// <summary>进程结束</summary>
+        private void process_Exited(object sender, EventArgs e)
+        {
+            this.lblInfo.Text = "Completed";
+            MessageBox.Show(this, "Mission Complete");
+        }
+
+
+        
+                /*
+                // 截取错误流
+                p.BeginErrorReadLine();
+                p.BeginOutputReadLine();
+                StreamReader errorReader = p.StandardError;
+                do
+                {
+                    string line = errorReader.ReadLine();
+                    ProcessLine(line);
+                }
+                while (!errorReader.EndOfStream);
+
+                // 截取输出流
+                StreamReader reader = p.StandardOutput;
+                do
+                {
+                    string line = reader.ReadLine();
+                    ProcessLine(line);
+                }
+                while (!reader.EndOfStream);
+
+                // 结束
+                p.WaitForExit();
+                ProcessEnd(p.ExitCode);
+                */
